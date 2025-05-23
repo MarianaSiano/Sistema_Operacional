@@ -5,7 +5,7 @@
 #include <process.h>
 //#include <sys/wait.h>
 
-//1.1 - Processo de 3 Processos Filhhos
+//1.1 - Processo de 3 Processos Filhos
 int main()
 {
     for(int i = 0; i < 3; i++) {

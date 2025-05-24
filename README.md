@@ -8,9 +8,11 @@
 
 * Linux utilizado para testes foi o Ubuntu 20.04 <br>
 
-* Para rodar em C, comente as linhas 4 e 5 e descomente a linha 8 <br>
+* As atividades em Linguagem Java foi testada no Windows 11. <br>
 
-* As atividades em Linguagem Java foi testada no Windows 11. 
+* No windows, se coloca o `#include <windows.h>` e `#include <process.h>` não dá erro mas não compila e não roda e deixar o `#include <sys/wait.h>` dá erro <br>
+
+* Já no Linux Ubuntu é o contrário, compila e roda com `#include <sys/wait.h>` e não compila e roda com `#include <windows.h>` e `#include <process.h>`.
 
 ## Compilando os Programas em Linguagem C
 
@@ -18,7 +20,7 @@
 `cd Atividades`  <br>
 
 * Em seguida, faça o comando a seguir, dependendo da atividade que queira compilar: <br>
-`gcc nome_do_programa -o nome_arquivo_executavel` <br>
+`gcc nome_do_programa -o nome_arquivo_executavel -pthread` <br>
 
 * Onde: `nome_do_programa` é o nome do arquivo que queira compilar e `nome_arquivo_executavel` é o nome do executavel que sera utilizado logo em seguida <br>
 

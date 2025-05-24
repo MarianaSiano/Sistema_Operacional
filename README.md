@@ -38,3 +38,15 @@
 
 * Com isso, criará um executavel e execute: <br>
 `java Atividades/nome_do_arquivo`
+
+## Compilando os Programas em Linguagem Java no Linux Ubuntu
+* Primeiro vamos instalar o JDK com o seguinte comando: <br>
+`sudo apt install default-jdk` <br>
+
+* Para rodar as atividades da Linguagem Java, fique no diretório raiz (não entrando no diretório `Atividades`) <br>
+
+* Após as instalações, faça o seguinte comando: <br>
+`javac Atividades/nome_do_arquivo.java` <br>
+
+* Com isso, criará um executavel e execute: <br>
+`java Atividades/nome_do_arquivo`

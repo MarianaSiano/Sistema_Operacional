@@ -1,12 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-// #include <windows.h>
-// #include <process.h>
-#include <sys/wait.h>
+#include <windows.h>
+#include <process.h>
+//#include <sys/wait.h>
 
 int main()
 {
+    //Atividade 1.1 - Criar três processos filhos
     for(int i = 0; i < 3; i++) {
         pid_t pid = fork();
         if(pid < 0) {

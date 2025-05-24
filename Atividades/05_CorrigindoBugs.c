@@ -134,14 +134,6 @@ int main()
         printf("\n======================= ATIVIDADE 5.3 =======================\n");
         prinf("3. Ocorrencia de Deadlock - Cliente\n");
         prinf("4. Ocorrencia de Deadlock - Filosofo\n");
-        prinf("\n======================= ATIVIDADE 5.5 =======================\n");
-        prinf("5. \n");
-        prinf("\n======================= ATIVIDADE 5.6 =======================\n");
-        prinf("\n\n");
-        prinf("\n\n");
-        prinf("\n======================= ATIVIDADE 5.7 =======================\n");
-        prinf("\n\n");
-        prinf("\n\n");
         printf("0. Sair\n");
         printf("Escolha uma opcao => ");
 

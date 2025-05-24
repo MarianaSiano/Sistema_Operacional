@@ -6,6 +6,8 @@
 
 * As atividades da Linguagem C funcionam APENAS no Sistema Operacional Linux <br>
 
+* Linux utilizado para testes foi o Ubuntu 20.04 <br>
+
 # Compilando os Programas em Linguagem C
 
 * Para rodar os programas que são da linguagem C, basta ir para a pasta de Atividades com o seguinte comando: <br>

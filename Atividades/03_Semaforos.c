@@ -44,5 +44,19 @@ void *consumidor(void *arg)
 
 int main()
 {
+    pthread_t t1, t2;
+    sem_init(&empty, 0, TAM);
+    sem_init(&full, 0, 0);
+    pthread_mutex_init(&mutex, NULL);
+
+    pthread_create(&t1, NULL, produtor, NULL);
+    pthread_create(&t2, NULL, consumidor, NULL);
+
+    pthread_join(t1, NULL);
+    pthread_join(t2, NULL);
+
+    sem_destroy(&empty);
+    sem_destroy(&full);
+    pthread_mutex_destroy(&mutex);
     return 0;
 }

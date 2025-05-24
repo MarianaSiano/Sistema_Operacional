@@ -18,9 +18,22 @@ int main()
         printf("\n======================= ATIVIDADE 5.1 =======================\n");
         printf("1. Codigo Original\n");
         printf("2. Codigo Corrigido\n");
+        printf("Escolha uma opcao => ");
 
         switch(opcao) {
             case 1: {
+                for(int i = 0; i < 3; i++) {
+                    if(fork() == 0) {
+                        print("Filho %d criado\n", getpid());
+                        return 0;
+                    }
+                }
+                sleep(5);
+                printf("Pai Finalizado\n");
+                break;
+            }
+
+            case 2: {
                 break;
             }
         }

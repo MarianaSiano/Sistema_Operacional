@@ -10,7 +10,7 @@
 
 * As atividades em Linguagem Java foi testada no Windows 11. 
 
-### Compilando os Programas em Linguagem C
+## Compilando os Programas em Linguagem C
 
 * Para rodar os programas que são da linguagem C, basta ir para a pasta de Atividades com o seguinte comando: <br>
 `cd Atividades`  <br>
@@ -27,7 +27,7 @@
 
 * Mas caso vai direto executar sem antes compilar o programa, o mesmo não irá funcionar.
 
-### Compilando os Programas em Linguagem Java no Windows
+## Compilando os Programas em Linguagem Java no Windows
 
 * Para rodar as atividades da Linguagem Java, fique no diretório raiz (não entrando no diretório `Atividades`) <br>
 

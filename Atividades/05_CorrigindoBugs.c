@@ -11,15 +11,6 @@
 int counter = 0;
 pthread_mutex_t lock;
 
-//Original
-void *increment1(void *arg)
-{
-    for(int i = 0; i < 1000; i++)
-        counter++;
-    return NULL;
-}
-
-//Corrigido
 void *increment(void *arg)
 {
     for(int i = 0; i < 1000; i++) {
@@ -30,6 +21,19 @@ void *increment(void *arg)
     return NULL;
 }
 
+//Atividade 5.3 - Corrigir Deadlock (Inversão nos Semáforos)
+sem_t empty, full;
+int buffer[5], index = 0;
+
+void produtor()
+{
+    for(int i = 1; i <= 10; i++) {
+        sem_wait(&empty);
+        buffer[index++] = i;
+        sem_post(&full);
+    }
+}
+
 //Atividade 5 - Correção de Bugs
 int main()
 {
@@ -37,29 +41,27 @@ int main()
     do {
         printf("\n======================= MENU  =======================\n");
         printf("\n======================= ATIVIDADE 5.1 =======================\n");
-        printf("1. Codigo Original\n");
-        printf("2. Codigo Corrigido\n");
+        printf("1. Codigo Corrigido de Criacao de Processos Zumbiso\n");
         printf("\n======================= ATIVIDADE 5.2 =======================\n");
-        printf("3. Codigo Original\n");
-        printf("4. Corrigir Erros de Sincronizacao");
+        printf("2. Corrigir Erros de Sincronizacao");
+        printf("\n======================= ATIVIDADE 5.3 =======================\n");
+        prinf("3. Codigo Corrigido de Ocorrencia de Deadlock\n");
+        prinf("\n======================= ATIVIDADE 5.4 =======================\n");
+        prinf("4.\n");
+        prinf("\n======================= ATIVIDADE 5.5 =======================\n");
+        prinf("\n\n");
+        prinf("\n\n");
+        prinf("\n======================= ATIVIDADE 5.6 =======================\n");
+        prinf("\n\n");
+        prinf("\n\n");
+        prinf("\n======================= ATIVIDADE 5.7 =======================\n");
+        prinf("\n\n");
+        prinf("\n\n");
         printf("0. Sair\n");
         printf("Escolha uma opcao => ");
 
         switch(opcao) {
             case 1: {
-                //Codigo original da atividade 5.1 - Por que este código cria Processos Zumbis
-                for(int i = 0; i < 3; i++) {
-                    if(fork() == 0) {
-                        print("Filho %d criado\n", getpid());
-                        return 0;
-                    }
-                }
-                sleep(5);
-                printf("Pai Finalizado\n");
-                break;
-            }
-
-            case 2: {
                 //Codigo corrigido com wait()
                 for(int i = 0; i < 3; i++) {
                     pid_t pid = fork();
@@ -78,15 +80,7 @@ int main()
                 break;
             }
 
-            case 3: {
-                pthread_t t1, t2;
-                pthread_create(&t1, NULL, increment1, NULL);
-                pthread_create(&t2, NULL, increment1, NULL);
-                printf("Couter => %d\n", counter);
-                break;
-            }
-
-            case 4: {
+            case 2: {
                 pthread_t t1, t2;
 
                 pthread_mutex_initi(&lock, NULL);
@@ -100,6 +94,10 @@ int main()
                 printf("Counter => %d\n", counter);
 
                 pthread_mutex_destroy(&lock);
+                break;
+            }
+
+            case 3: {
                 break;
             }
 

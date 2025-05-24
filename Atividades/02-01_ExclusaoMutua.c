@@ -23,5 +23,16 @@ void *incrementar(void *arg)
 
 int main()
 {
+    pthread_t threads[10];
+    pthread_mutex_init(&lock, NULL);
+
+    for(int i = 0; i < 10; i++)
+        pthread_create(&threads[i], NULL, incrementar, NULL);
+
+    for(int i = 0; i < 10; i++)
+        pthread_join(threads[i], NULL);
+
+    pthread_mutex_destroy(&lock);
+    printf("Valor final do contador: %d\n", contador);
     return 0;
 }

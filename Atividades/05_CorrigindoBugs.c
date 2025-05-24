@@ -22,6 +22,7 @@ int main()
 
         switch(opcao) {
             case 1: {
+                //Codigo original
                 for(int i = 0; i < 3; i++) {
                     if(fork() == 0) {
                         print("Filho %d criado\n", getpid());
@@ -34,6 +35,21 @@ int main()
             }
 
             case 2: {
+                //Codigo corrigido com wait()
+                for(int i = 0; i < 3; i++) {
+                    pid_t pid = fork();
+
+                    if(pid == 0) {
+                        printf("Filho %d criado\n", getpid());
+                        return 0;
+                    }
+                }
+
+                //Espere todos os filhos
+                for(int i = 0; i < 3; i++)
+                    wait(NULL);
+
+                printf("Pai Finalizado\n");
                 break;
             }
         }

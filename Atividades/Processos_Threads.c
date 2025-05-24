@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include <windows.h>
-#include <process.h>
+//#include <windows.h>
+//#include <process.h>
 #include <pthread.h>
 #include <semaphore.h>
-//#include <sys/wait.h>
+#include <sys/wait.h>
 
 void *func(void *arg)
 {

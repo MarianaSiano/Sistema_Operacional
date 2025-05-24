@@ -1,6 +1,5 @@
 package Atividades;
 //Atividade 5.7
-
 public class BancoDeDados {
     private int leitores = 0;
     private boolean escrevendo = false;

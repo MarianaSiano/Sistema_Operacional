@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-//#include <windows.h>
-//#include <process.h>
+// #include <windows.h>
+// #include <process.h>
 #include <pthread.h>
 #include <semaphore.h>
 #include <sys/wait.h>
@@ -67,6 +67,39 @@ void *consumidor(void *arg)
     return NULL;
 }
 
+//Atividade 5.5 - Jantar dos Filósofos
+#define NUM_FILOSOFOS 5
+sem_t garfo[NUM_FILOSOFOS];
+
+void *filosofo(void *arg) 
+{
+    int id = *(int*) arg;
+
+    while(1) {
+        printf("Filosofo %d está pensando...\n", id);
+        sleep(rand() % 3 + 1);
+
+        if(id % 2 == 0) {
+            sem_wait(&garfo[(id + 1) % NUM_FILOSOFOS]); //NUM_FILOSOFOS 5
+            sem_wait(&garfo[id]);
+        } 
+
+        else {
+            sem_wait(&garfo[id]);
+            sem_wait(&garfo[(id + 1) % NUM_FILOSOFOS]);
+        }
+
+        printf("Filosofo %d está comendo...\n", id);
+        sleep(rand() % 2 + 1);
+
+        sem_post(&garfo[id]);
+        sem_post(&garfo[(id + 1) % NUM_FILOSOFOS]);
+
+        printf("Filosofo %d terminou de comer.\n", id);
+    }
+    return NULL;
+}
+
 int main()
 {
     int opcao;
@@ -76,14 +109,14 @@ int main()
         printf("2. Atividade 1.2 - Threads\n");
         printf("3. Atividade 2.1 - Mutex\n");
         printf("4. Atividade 3 - Produtor/Consumidor\n");
+        printf("5. Atividade 5.5 - Jantar dos Filosofos (Deadlock)\n");
         printf("0. Sair\n");
         printf("Escolha uma opcao => ");
         scanf("%d", &opcao);
         getchar();
 
-        switch(opcao) {
+        switch (opcao) {
         case 1: {
-            //Atividade 1.1 - Criar três processos filhos
             for(int i = 0; i < 3; i++) {
                 pid_t pid = fork();
 
@@ -106,7 +139,6 @@ int main()
         }
 
         case 2: {
-            //Atividade 1.2 - Criar cinco threads
             pthread_t threads[5];
 
             for(int i = 0; i < 5; i++)
@@ -148,6 +180,27 @@ int main()
             break;
         }
 
+        case 5: {
+            pthread_t filosofos[NUM_FILOSOFOS];
+            int ids[NUM_FILOSOFOS];
+
+            for(int i = 0; i < NUM_FILOSOFOS; i++)
+                sem_init(&garfo[i], 0, 1);
+
+            for(int i = 0; i < NUM_FILOSOFOS; i++) {
+                ids[i] = i;
+                pthread_create(&filosofos[i], NULL, filosofo, &ids[i]);
+            }
+
+            for(int i = 0; i < NUM_FILOSOFOS; i++)
+                pthread_join(filosofos[i], NULL);
+
+            for(int i = 0; i < NUM_FILOSOFOS; i++)
+                sem_destroy(&garfo[i]);
+
+            break;
+        }
+
         case 0: {
             printf("Encerrando...\n");
             break;
@@ -156,7 +209,8 @@ int main()
         default:
             printf("Opcao invalida.\n");
         }
-    } while(opcao != 0);
+
+    } while (opcao != 0);
 
     return 0;
 }

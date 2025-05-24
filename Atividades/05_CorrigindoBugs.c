@@ -18,6 +18,7 @@ int main()
         printf("\n======================= ATIVIDADE 5.1 =======================\n");
         printf("1. Codigo Original\n");
         printf("2. Codigo Corrigido\n");
+        printf("0. Sair\n");
         printf("Escolha uma opcao => ");
 
         switch(opcao) {
@@ -52,7 +53,16 @@ int main()
                 printf("Pai Finalizado\n");
                 break;
             }
+
+            case 0: {
+                printf("Encerrando o programa.\n");
+                break;
+            }
+
+            default:
+                printf("Opcao invalida!\n");
         }
     } while(opcao != 0);
+
     return 0;
 }

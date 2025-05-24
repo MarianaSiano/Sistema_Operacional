@@ -8,6 +8,8 @@
 
 * Linux utilizado para testes foi o Ubuntu 20.04 <br>
 
+* Para rodar em C, comente as linhas 4 e 5 e descomente a linha 8 <br>
+
 * As atividades em Linguagem Java foi testada no Windows 11. 
 
 ## Compilando os Programas em Linguagem C

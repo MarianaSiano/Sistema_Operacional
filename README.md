@@ -2,7 +2,7 @@
 
 * Repositório para as atividades da disciplina DCC062 - Sistemas Operacionais <br>
 
-# Observacao
+# Observação
 
 * As atividades da Linguagem C funcionam APENAS no Sistema Operacional Linux <br>
 

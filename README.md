@@ -8,11 +8,7 @@
 
 * Linux utilizado para testes foi o Ubuntu 20.04 <br>
 
-* As atividades em Linguagem Java foi testada no Windows 11. <br>
-
-* No windows, se coloca o `#include <windows.h>` e `#include <process.h>` não dá erro mas não compila e não roda e deixar o `#include <sys/wait.h>` dá erro <br>
-
-* Já no Linux Ubuntu é o contrário, compila e roda com `#include <sys/wait.h>` e não compila e roda com `#include <windows.h>` e `#include <process.h>`.
+* As atividades em Linguagem Java foi testada no Windows 11. e no Linux Ubuntu 20.04 <br>
 
 ## Compilando os Programas em Linguagem C
 
